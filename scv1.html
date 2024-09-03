@@ -69,6 +69,24 @@
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
         }
     </style>
+    <script>
+        // 사용자가 로그인했는지 여부를 확인하는 변수 (실제 구현에서는 서버나 쿠키를 이용하여 확인)
+        var isLoggedIn = false; // 사용자가 로그인한 경우 true로 설정
+
+        function handleButtonClick(target) {
+            if (isLoggedIn) {
+                if (target === 'job') {
+                    window.location.href = 'https://www.thescv.kr/part-time-job';
+                } else if (target === 'pay') {
+                    window.location.href = 'https://www.thescv.kr/payment-request';
+                } else {
+                    window.location.href = 'https://www.thescv.kr/main';
+                }
+            } else {
+                window.location.href = 'https://www.thescv.kr/login';
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -77,9 +95,9 @@
     </div>
 
     <div class="overlay">
-        <a href="https://www.thescv.kr/main" class="button">메인 화면</a>
-        <a href="https://www.thescv.kr/login" class="button">알바 지원</a>
-        <a href="https://www.thescv.kr/login" class="button">급여/비용 청구</a>
+        <a href="#" class="button" onclick="handleButtonClick('main')">메인 화면</a>
+        <a href="#" class="button" onclick="handleButtonClick('job')">알바 지원</a>
+        <a href="#" class="button" onclick="handleButtonClick('pay')">급여/비용 청구</a>
     </div>
 
     <div class="warning">
